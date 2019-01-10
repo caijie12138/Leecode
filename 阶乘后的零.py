@@ -13,6 +13,7 @@
 解释: 5! = 120, 尾数中有 1 个零.
 说明: 你算法的时间复杂度应为 O(log n) 。
 '''
+#线性时间
 class Solution(object):
     def trailingZeroes(self, n):
         """
@@ -27,3 +28,12 @@ class Solution(object):
             res += n//5**i
             i -= 1
         return res
+#递归
+class Solution(object):
+    def trailingZeroes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        return 0 if n<5 else n//5+self.trailingZeroes(n//5)
+
