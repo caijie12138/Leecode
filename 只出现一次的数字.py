@@ -20,6 +20,20 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+       #异或运算 任何数和0异或都是本身 和自己异或都是0
+        res = nums[0]
+        for i in range(1,len(nums)):
+            res ^= nums[i]
+        return res
+
+#不满足线性时间复杂度
+
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
         nums.sort()
         count = 0
         for i in range(len(nums)-1):
