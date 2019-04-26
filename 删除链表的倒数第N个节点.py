@@ -40,3 +40,24 @@ class Solution:
             count1 += 1
         return head
         
+#o(n) and o(1)
+class Solution(object):
+    def removeNthFromEnd(self, head, n):
+        """
+        :type head: ListNode
+        :type n: int
+        :rtype: ListNode
+        """
+        if head.next == None:
+            return None
+        p,q,pre,t = head,head,head,n
+        while n:
+            p,n = p.next,n-1
+        while p:
+            p,q,pre = p.next,q.next,q
+        if t==1:
+            pre.next = None
+        else:
+            q.next,q.val = q.next.next,q.next.val
+        return head
+            
